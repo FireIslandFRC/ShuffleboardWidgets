@@ -6,8 +6,8 @@ import edu.wpi.first.shuffleboard.api.plugin.Plugin;
 import edu.wpi.first.shuffleboard.api.widget.ComponentType;
 import edu.wpi.first.shuffleboard.api.widget.WidgetType;
 
-import com.example.simplewidget.data.type.PointType;
-import com.example.simplewidget.widget.SimplePointWidget;
+import com.example.simplewidget.data.type.GyroType;
+import com.example.simplewidget.widget.GyroWidget;
 
 import java.util.List;
 import java.util.Map;
@@ -17,30 +17,30 @@ import java.util.Map;
  */
 @Description(
     group = "com.example",
-    name = "SimpleWidgetExample",
+    name = "GyroWidget",
     version = "2019.1.1",
     summary = "An example plugin that provides a simple data type and a widget for viewing it"
 )
-public final class SimpleWidgetExamplePlugin extends Plugin {
+public final class GyroWidgetPlugin extends Plugin {
 
   @Override
   public List<DataType> getDataTypes() {
     return List.of(
-        PointType.Instance
+        GyroType.Instance
     );
   }
 
   @Override
   public List<ComponentType> getComponents() {
     return List.of(
-        WidgetType.forAnnotatedWidget(SimplePointWidget.class)
+        WidgetType.forAnnotatedWidget(GyroWidget.class)
     );
   }
 
   @Override
   public Map<DataType, ComponentType> getDefaultComponents() {
     return Map.of(
-        PointType.Instance, WidgetType.forAnnotatedWidget(SimplePointWidget.class)
+        GyroType.Instance, WidgetType.forAnnotatedWidget(GyroWidget.class)
     );
   }
 }

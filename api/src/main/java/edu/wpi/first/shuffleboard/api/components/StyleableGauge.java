@@ -39,10 +39,14 @@ public class StyleableGauge extends Gauge {
 
   public StyleableGauge() {
     super();
+    // setCustomTickLabelsEnabled(true);
+    // setCustomTickLabels(List.of("2Pi"));
   }
 
   public StyleableGauge(SkinType skinType) {
     super(skinType);
+    // setCustomTickLabelsEnabled(true);
+    // setCustomTickLabels(List.of("2Pi"));
   }
 
   @Override

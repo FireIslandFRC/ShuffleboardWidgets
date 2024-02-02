@@ -1,0 +1,9 @@
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Slider?>
+
+   <VBox xmlns:fx="http://javafx.com/fxml/1"
+   fx:controller="com.example.simplewidget.widget.Point2DWidget"
+   fx:id="root">
+      <Slider fx:id = "xSlider"/>
+      <Slider fx:id = "ySlider"/>
+   </VBox>
