@@ -22,7 +22,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
-@Description(name = "MyGyro", dataTypes = {GyroData.class, Number.class})
+@Description(name = "RadiableGyro", dataTypes = {GyroData.class, Number.class})
 @ParametrizedController("GyroWidget.fxml")
 public class GyroWidget extends SimpleAnnotatedWidget<Object> {
 
@@ -47,7 +47,7 @@ public class GyroWidget extends SimpleAnnotatedWidget<Object> {
         angle = wrapAngle(angle);
 
         gauge.setValue(angle);
-        valueLabel.setText("" + 1 + angle * Math.PI / 180);
+        valueLabel.setText(angle * Math.PI / 180 + "");
       }
     });
   }
