@@ -16,6 +16,12 @@ jobs:
       uses: gradle/gradle-build-action@v2
     - name: Run build with Gradle Wrapper
       run: ./gradlew example-plugins:installAll
+    - name: archive jar
+      uses: actions/upload-artifact@v4
+      with:
+        name: build
+        path: ~/Shuffleboard/plugins/customGyro.jar
+        retention-days: 1
   release:
     name: Release pushed tag
     runs-on: ubuntu-latest
