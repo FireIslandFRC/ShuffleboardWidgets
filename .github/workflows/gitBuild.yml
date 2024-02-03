@@ -3,10 +3,12 @@ name: Build Gradle project
 on:
   push:
 
+permissions:
+  contents: write
+
 jobs:
   build-gradle-project:
     runs-on: ubuntu-latest
-    environment: production
     steps:
     - name: Checkout project sources
       uses: actions/checkout@v3
@@ -14,3 +16,13 @@ jobs:
       uses: gradle/gradle-build-action@v2
     - name: Run build with Gradle Wrapper
       run: ./gradlew example-plugins:installAll
+  release:
+    name: Release pushed tag
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create release
+        run: |
+          gh release create "autoRelease" \
+              --repo="$GITHUB_REPOSITORY" \
+              --title="${hehehhehhe}" \
+              --generate-notes
