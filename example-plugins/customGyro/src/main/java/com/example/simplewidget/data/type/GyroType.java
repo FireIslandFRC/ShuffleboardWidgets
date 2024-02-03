@@ -11,7 +11,7 @@ public final class GyroType extends ComplexDataType<GyroData> {
   public static final GyroType Instance = new GyroType();
 
   private GyroType() {
-    super("MyGyro", GyroData.class);
+    super("RadiableGyro", GyroData.class);
   }
 
   @Override

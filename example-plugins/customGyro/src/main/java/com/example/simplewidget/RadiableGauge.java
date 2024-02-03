@@ -1,4 +1,4 @@
-package edu.wpi.first.shuffleboard.api.components;
+package com.example.simplewidget;
 
 import edu.umd.cs.findbugs.annotations.OverrideMustInvoke;
 import edu.wpi.first.shuffleboard.api.css.SimpleColorCssMetaData;
@@ -27,7 +27,7 @@ import javafx.scene.text.Font;
  * on a per-skin basis with the pseudoclass for that skins name; for example, a gauge with the {@code FLAT} skin can
  * be styled with {@code .gauge:flat} without affecting other gauge types.
  */
-public class StyleableGauge extends Gauge {
+public class RadiableGauge extends Gauge {
 
   private static final Map<SkinType, PseudoClass> skinTypePseudoClasses = new EnumMap<>(SkinType.class);
 
@@ -39,11 +39,13 @@ public class StyleableGauge extends Gauge {
   }
 
   
-  public StyleableGauge() {
+  public RadiableGauge() {
     super();
+    setCustomTickLabels("0", "π/2", "π", "3π/2");
+    setCustomTickLabelsEnabled(true);
   }
 
-  public StyleableGauge(SkinType skinType) {
+  public RadiableGauge(SkinType skinType) {
     super(skinType);
   }
 

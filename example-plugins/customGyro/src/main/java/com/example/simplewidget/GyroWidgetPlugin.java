@@ -12,14 +12,11 @@ import com.example.simplewidget.widget.GyroWidget;
 import java.util.List;
 import java.util.Map;
 
-/**
- * An example plugin that provides a custom data type (a 2D point) and a simple widget for viewing such data.
- */
 @Description(
     group = "com.example",
-    name = "GyroWidget",
+    name = "RadiableWidget",
     version = "2019.1.1",
-    summary = "An example plugin that provides a simple data type and a widget for viewing it"
+    summary="Gyro but radians"
 )
 public final class GyroWidgetPlugin extends Plugin {
 
