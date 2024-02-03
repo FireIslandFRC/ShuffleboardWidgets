@@ -21,6 +21,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ github.ref_name }}
         run: |
           gh release create "autoRelease" \
               --repo="$GITHUB_REPOSITORY" \
