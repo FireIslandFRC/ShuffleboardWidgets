@@ -1,1 +1,19 @@
+plugins {
+    id 'java-library'
+}
 
+repositories {
+    mavenCentral()
+    maven {
+        name = "WPILib"
+        setUrl("https://frcmaven.wpi.edu/artifactory/release")
+    }
+}
+
+dependencies {
+    compileOnly project(":api")
+}
+
+tasks.register("installAll", GradleBuild) {
+    tasks = ["installPlugin"]
+}
