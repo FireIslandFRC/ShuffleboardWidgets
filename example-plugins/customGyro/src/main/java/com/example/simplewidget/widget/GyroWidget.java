@@ -46,8 +46,8 @@ public class GyroWidget extends SimpleAnnotatedWidget<Object> {
         }
         angle = wrapAngle(angle);
 
-        gauge.setValue(angle);
-        valueLabel.setText(angle * Math.PI / 180 + "");
+        gauge.setValue(angle / Math.PI * 180);
+        valueLabel.setText(angle + "");
       }
     });
   }
@@ -60,9 +60,9 @@ public class GyroWidget extends SimpleAnnotatedWidget<Object> {
    */
   private double wrapAngle(double angle) {
     if (angle < 0) {
-      return ((angle % 360) + 360) % 360;
+      return ((angle % (2 * Math.PI)) + (2 * Math.PI)) % (2 * Math.PI);
     } else {
-      return angle % 360;
+      return angle % (2 * Math.PI);
     }
   }
 
