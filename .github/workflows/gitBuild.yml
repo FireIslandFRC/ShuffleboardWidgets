@@ -26,6 +26,7 @@ jobs:
           tag: ${{ github.ref_name }}
         run: |
           gh release create "${tag}" \
+              "api" \
               --repo="$GITHUB_REPOSITORY" \
               --title="${hehehhehhe}" \
               --generate-notes
