@@ -5,6 +5,8 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TextField?>
+
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.example.simplewidget.widget.GyroWidget"
@@ -23,6 +25,6 @@
                     needleType="STANDARD" needleShape="FLAT" knobType="FLAT"
                     scaleDirection="COUNTER_CLOCKWISE"/>
     <StackPane>
-        <Label fx:id="valueLabel"/>
+        <TextField fx:id="valueLabel" alignment="CENTER"/>
     </StackPane>
 </VBox>

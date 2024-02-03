@@ -13,14 +13,18 @@ import com.google.common.collect.ImmutableList;
 
 import java.util.List;
 
+import javax.management.ValueExp;
+
 import javafx.beans.property.BooleanPropertyBase;
 import javafx.beans.property.Property;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableArrayBase;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+
 import javafx.scene.layout.Pane;
+import org.fxmisc.easybind.EasyBind;
 
 @Description(name = "RadiableGyro", dataTypes = {GyroData.class, Number.class})
 @ParametrizedController("GyroWidget.fxml")
@@ -31,11 +35,13 @@ public class GyroWidget extends SimpleAnnotatedWidget<Object> {
   @FXML
   private Gauge gauge;
   @FXML
-  private Label valueLabel;
+  private TextField valueLabel;
+
+  private double angle;
 
   @FXML
   private void initialize() {
-    
+   valueLabel.setEditable(false); 
     dataProperty().addListener((__, prev, cur) -> {
       if (cur != null) {
         double angle = 0;
@@ -43,11 +49,12 @@ public class GyroWidget extends SimpleAnnotatedWidget<Object> {
           angle = ((Number) cur).doubleValue();
         } else if (cur instanceof GyroData) {
           angle = ((GyroData) cur).getWrappedValue();
+        } else if (cur instanceof String || cur instanceof Boolean) {
+          valueLabel.setText(cur.toString());
         }
         angle = wrapAngle(angle);
-
         gauge.setValue(angle / Math.PI * 180);
-        valueLabel.setText(angle + "");
+        valueLabel.setText(String.format("%1.4f", angle));
       }
     });
   }
