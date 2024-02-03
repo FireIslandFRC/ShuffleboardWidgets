@@ -26,7 +26,7 @@ jobs:
           tag: ${{ github.ref_name }}
         run: |
           gh release create "${tag}" \
-              "api" \
+              "C:/Users/mBorchert/Shuffleboard/plugins" \
               --repo="$GITHUB_REPOSITORY" \
               --title="${hehehhehhe}" \
               --generate-notes
