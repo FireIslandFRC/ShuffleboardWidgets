@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import edu.wpi.first.shuffleboard.api.components.StyleableGauge?>
+<?import com.example.simplewidget.RadiableGauge?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
@@ -14,13 +14,14 @@
     <padding>
         <Insets topRightBottomLeft="4"/>
     </padding>
-    <StyleableGauge fx:id="gauge" minValue="0" maxValue="359" startAngle="90" angleRange="360"
+    <RadiableGauge fx:id="gauge" minValue="0" maxValue="359" startAngle="90" angleRange="360"
                     valueVisible="false"
-                    majorTickSpace="45" tickLabelLocation="OUTSIDE"
+                    majorTickSpace="90" tickLabelLocation="OUTSIDE"
                     autoScale="false"
                     interactive="false"
                     VBox.vgrow="ALWAYS"
-                    needleType="STANDARD" needleShape="FLAT" knobType="FLAT"/>
+                    needleType="STANDARD" needleShape="FLAT" knobType="FLAT"
+                    scaleDirection="COUNTER_CLOCKWISE"/>
     <StackPane>
         <Label fx:id="valueLabel"/>
     </StackPane>

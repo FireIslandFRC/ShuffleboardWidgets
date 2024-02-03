@@ -15,6 +15,9 @@ import java.util.List;
 
 import javafx.beans.property.BooleanPropertyBase;
 import javafx.beans.property.Property;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableArrayBase;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
@@ -32,6 +35,7 @@ public class GyroWidget extends SimpleAnnotatedWidget<Object> {
 
   @FXML
   private void initialize() {
+    
     dataProperty().addListener((__, prev, cur) -> {
       if (cur != null) {
         double angle = 0;
@@ -43,7 +47,7 @@ public class GyroWidget extends SimpleAnnotatedWidget<Object> {
         angle = wrapAngle(angle);
 
         gauge.setValue(angle);
-        valueLabel.setText(String.format("%2f", angle));
+        valueLabel.setText("" + 1 + angle * Math.PI / 180);
       }
     });
   }
