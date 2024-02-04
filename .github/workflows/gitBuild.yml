@@ -34,7 +34,7 @@ jobs:
           path: ~/Shuffleboard/plugins
       - name: Zip file
           run: |
-            zip -r yes.zip ~/Shuffleboard/plugins/
+            git archive -o yes.zip ~/Shuffleboard/plugins
       - name: Create release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
