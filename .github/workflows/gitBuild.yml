@@ -28,12 +28,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create release
+        uses: actions/download-artifact@v4
+        with:
+          name: build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ github.ref_name }}
         run: |
           gh release create "${tag}" \
-              "C:/Users/mBorchert/Shuffleboard/plugins" \
+              build \
               --repo="$GITHUB_REPOSITORY" \
               --title="${hehehhehhe}" \
               --generate-notes
