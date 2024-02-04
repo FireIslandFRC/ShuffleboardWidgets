@@ -31,13 +31,14 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: build
+          path: ~Shuffleboard/plugins
       - name: Create release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ github.ref_name }}
         run: |
           gh release create "${tag}" \
-              ~/Shuffleboard/plugins/customGyro.jar \
+              ~/Shuffleboard/plugins/ \
               --repo="$GITHUB_REPOSITORY" \
               --title="${hehehhehhe}" \
               --generate-notes
