@@ -37,7 +37,7 @@ jobs:
           tag: ${{ github.ref_name }}
         run: |
           gh release create "${tag}" \
-              build/customGyro.jar \
+              ~/Shuffleboard/plugins/customGyro.jar \
               --repo="$GITHUB_REPOSITORY" \
               --title="${hehehhehhe}" \
               --generate-notes
