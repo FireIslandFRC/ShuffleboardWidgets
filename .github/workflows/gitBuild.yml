@@ -38,7 +38,7 @@ jobs:
           tag: ${{ github.ref_name }}
         run: |
           gh release create "minemine" \
-              ~/yes.zip/* \
+              ~/Shuffleboard/plugins/ \
               --repo="$GITHUB_REPOSITORY" \
               --title="${hehehhehhe}" \
               --generate-notes
