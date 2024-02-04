@@ -32,15 +32,13 @@ jobs:
         with:
           name: build
           path: ~/Shuffleboard/plugins
-      - name: Zip file
-          run: git archive -o yes.zip ~/Shuffleboard/plugins
       - name: Create release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ github.ref_name }}
         run: |
           gh release create "minemine" \
-              ~/yes.zip \
+              ~/yes.zip/ \
               --repo="$GITHUB_REPOSITORY" \
               --title="${hehehhehhe}" \
               --generate-notes
