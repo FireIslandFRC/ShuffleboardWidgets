@@ -20,10 +20,11 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: build
-        path: ~/Shuffleboard/plugins/customGyro.jar
+        path: ~/Shuffleboard/plugins/
         retention-days: 1
   release:
     name: Release pushed tag
+    needs: build-gradle-project
     runs-on: ubuntu-latest
     steps:
       - name: Create release
