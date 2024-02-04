@@ -16,7 +16,7 @@ jobs:
       uses: gradle/gradle-build-action@v2
     - name: Run build with Gradle Wrapper
       run: ./gradlew example-plugins:installAll
-    - name: archive jar
+    - name: Archive jar
       uses: actions/upload-artifact@v4
       with:
         name: build
@@ -32,13 +32,16 @@ jobs:
         with:
           name: build
           path: ~/Shuffleboard/plugins
+      - name: Zip file
+          run: |
+            zip -r yes.zip ~/Shuffleboard/plugins/
       - name: Create release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ github.ref_name }}
         run: |
           gh release create "minemine" \
-              ~/Shuffleboard/plugins/ \
+              ~/yes.zip \
               --repo="$GITHUB_REPOSITORY" \
               --title="${hehehhehhe}" \
               --generate-notes
