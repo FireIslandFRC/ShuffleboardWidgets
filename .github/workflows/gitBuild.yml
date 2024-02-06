@@ -10,8 +10,6 @@ jobs:
   print-vars:
     runs-on: ubuntu-latest
     steps:
-    - name: set secret
-      run: gh secret set MY_SECRET < 
     - name: print
       run: echo "dsjfa ${{ vars.MY_TOKEN }}"
   build-gradle-project:
