@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: print
-      run: echo "dsjfa ${{ secrets.setVariable }}"
+      run: echo "dsjfa ${{ vars.MY_TOKEN }}"
   build-gradle-project:
     runs-on: ubuntu-latest
     steps:
