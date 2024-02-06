@@ -9,7 +9,10 @@ permissions:
 jobs:
   print-vars:
     runs-on: ubuntu-latest
+    environment: production
     steps:
+    - name: print
+      run: echo "jfds. ${{ vars.yes }}"
     - name:
       uses: action-pack/set-variable@v1
       with:
