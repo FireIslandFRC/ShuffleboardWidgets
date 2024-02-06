@@ -11,10 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
+    - name: set environment variables
+        uses: allenevans/set-env@v3.0.0
+        with:
+          yes: 'my value'
     - name: print
-        run: echo "fds ${{ why }}"
-        env:
-          yes: why
+        run: echo "dfafads ${{ yes }}"
     - name: oh
       uses: action-pack/set-variable@v1
       with:
