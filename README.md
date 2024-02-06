@@ -2,7 +2,7 @@
 
 ## Project Creation
 1. Clone the repository
-1. Enter the directory called example-plugins
+1. Enter the directory called [example-plugins](example-plugins)
 1. From there, create a copy of the folder called example-widget
 1. Then, rename the folder and gradle file to your project's name
 1. Add an entry in settings.gradle with the import statements formatted as
