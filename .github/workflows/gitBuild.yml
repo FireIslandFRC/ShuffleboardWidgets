@@ -11,16 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
-    - name: dsja
-      run: echo "YES=jdkls" >> $GITHUB_ENV
     - name: print
       run: echo "dfafads ${{ env.YES }}"
-    - name: oh
-      uses: action-pack/set-variable@v1
-      with:
-        name: 'something'
-        value: 'Lorem ipsun dolor simit'
-        token: ${{ secrets.MY_TOKEN }}
   build-gradle-project:
     runs-on: ubuntu-latest
     steps:
