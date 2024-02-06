@@ -7,11 +7,6 @@ permissions:
   contents: write
 
 jobs:
-  get-shaw:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Get shaw
-      run: 
   build-gradle-project:
     runs-on: ubuntu-latest
     steps:
