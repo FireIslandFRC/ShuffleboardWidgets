@@ -12,9 +12,9 @@ jobs:
     environment: production
     steps:
     - name: print
+        run: echo "fds ${{ why }}"
         env:
           yes: why
-        run: echo "fds ${{ why }}"
     - name: oh
       uses: action-pack/set-variable@v1
       with:
