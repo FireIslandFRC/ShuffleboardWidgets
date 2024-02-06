@@ -19,7 +19,7 @@ import "example-plugins:WIDGET_NAME"
 - `java/com/example/simplewidget/data` and its subdirectories define custom types for widgets, but aren't very often necessary
 
 ## Building
-Due to the fact that a full gradle build takes upwards of ten minutes, the project allows smaller builds for individual plugins
+Due to the fact that a full gradle build takes upwards of ten minutes, the project allows smaller builds for individual plugins.
 To build a single plugin, type the following into a terminal
 ```
 ./gradlew example-plugins:WIDGET_NAME:InstallPlugin
