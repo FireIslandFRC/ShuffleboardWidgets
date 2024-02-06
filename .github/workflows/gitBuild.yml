@@ -12,9 +12,9 @@ jobs:
     environment: production
     steps:
     - name: set environment variables
-        uses: allenevans/set-env@v3.0.0
-        with:
-          yes: 'my value'
+      uses: allenevans/set-env@v3.0.0
+      with:
+        yes: 'my value'
     - name: print
         run: echo "dfafads ${{ yes }}"
     - name: oh
