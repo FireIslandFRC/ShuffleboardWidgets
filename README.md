@@ -1,10 +1,11 @@
 # MyWidgets
 
 ## Widget Creation
-After cloning the repository, enter the directory called 'example-plugins'
-From there, create a copy of the folder called example-widget
-Then, rename the folder and gradle file to your choice
-Add an entry in settings.gradle with the import statements formatted as
+1. Clone the repository
+1. Enter the directory called 'example-plugins'
+1. From there, create a copy of the folder called example-widget
+1. Then, rename the folder and gradle file to your choice
+1. Add an entry in settings.gradle with the import statements formatted as
 ```Java
 import "example-plugins:WIDGET_NAME"
 ```
