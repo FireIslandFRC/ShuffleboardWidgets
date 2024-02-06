@@ -6,6 +6,10 @@ on:
 permissions:
   contents: write
 
+env:
+  # Setting an environment variable with the value of a configuration variable
+  env_var: ${{ vars.ENV_CONTEXT_VAR }}
+
 jobs:
   print-vars:
     runs-on: ubuntu-latest
@@ -17,7 +21,6 @@ jobs:
       uses: action-pack/set-variable@v1
       with:
         name: 'something'
-        repository: 'ShuffleboardWidgets'
         value: 'Lorem ipsun dolor simit'
         token: ${{ secrets.MY_TOKEN }}
   build-gradle-project:
