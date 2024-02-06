@@ -26,3 +26,4 @@ This will build your plugin and place it directly in the ~/Shuffleboard/plugins 
 
 ## Docs
 For more information, check the WPI docs [here](https://docs.wpilib.org/en/stable/docs/software/dashboards/shuffleboard/custom-widgets/index.html)
+or the wiki [here](https://github.com/4329/ShuffleboardWidgets/wiki)
