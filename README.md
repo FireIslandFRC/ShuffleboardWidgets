@@ -1,5 +1,3 @@
-# MyWidgets
-
 ## Project Creation
 1. Clone the repository
 1. Enter the directory called [example-plugins](example-plugins)
