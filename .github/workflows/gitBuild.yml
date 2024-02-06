@@ -11,8 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
+    - name: dsja
+      run: echo "YES=jdkls" >> $GITHUB_ENV
     - name: print
-      run: echo "dfafads ${{ env.YES }}"
+      run: echo "dfafads ${{ vars.YES }}"
   build-gradle-project:
     runs-on: ubuntu-latest
     steps:
