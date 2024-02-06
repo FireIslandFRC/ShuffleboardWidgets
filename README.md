@@ -25,3 +25,5 @@ To build a single plugin, type the following into a terminal
 ./gradlew example-plugins:PROJECT_NAME:InstallPlugin
 ```
 This will build your plugin and place it directly in the ~/Shuffleboard/plugins directory
+
+For more information, check the WPI docs [here](https://docs.wpilib.org/en/stable/docs/software/dashboards/shuffleboard/custom-widgets/index.html)
