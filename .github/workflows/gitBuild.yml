@@ -7,14 +7,11 @@ permissions:
   contents: write
 
 jobs:
-  print-vars:
+  get-shaw:
     runs-on: ubuntu-latest
-    environment: production
     steps:
-    - name: dsja
-      run: echo "vars.YES=jdkls" >> $GITHUB_ENV
-    - name: print
-      run: echo "dfafads ${{ vars.YES }}"
+    - name: Get shaw
+      run: 
   build-gradle-project:
     runs-on: ubuntu-latest
     steps:
@@ -45,7 +42,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ github.ref_name }}
         run: |
-          gh release create "minemine" \
+          gh release create "$GITHUB_SHA" \
               ~/Shuffleboard/plugins/* \
               --repo="$GITHUB_REPOSITORY" \
               --title="${hehehhehhe}" \
