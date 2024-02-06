@@ -26,4 +26,5 @@ To build a single plugin, type the following into a terminal
 ```
 This will build your plugin and place it directly in the ~/Shuffleboard/plugins directory
 
+### Docs
 For more information, check the WPI docs [here](https://docs.wpilib.org/en/stable/docs/software/dashboards/shuffleboard/custom-widgets/index.html)
