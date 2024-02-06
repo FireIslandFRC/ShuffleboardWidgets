@@ -6,20 +6,16 @@ on:
 permissions:
   contents: write
 
-env:
-  # Setting an environment variable with the value of a configuration variable
-  yes: 7
-
 jobs:
   print-vars:
     runs-on: ubuntu-latest
     environment: production
     steps:
     - name: print
-      - run: |
-        chcp 65001 #set code page to utf-8
-        echo ("BRANCH_NAME=" + $env:GITHUB_REF.replace('refs/heads/', '')) >> $env:GITHUB_ENVrun: echo "jfds. ${{ vars.yes }}"
-    - name:
+      run: |
+          chcp 65001 #set code page to utf-8
+          echo ("BRANCH_NAME=" + $env:GITHUB_REF.replace('refs/heads/', '')) >> $env:GITHUB_ENVrun: echo "jfds. ${{ vars.yes }}"
+    - name: oh
       uses: action-pack/set-variable@v1
       with:
         name: 'something'
