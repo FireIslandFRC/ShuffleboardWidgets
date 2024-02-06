@@ -8,7 +8,7 @@ permissions:
 
 env:
   # Setting an environment variable with the value of a configuration variable
-  env_var: ${{ vars.ENV_CONTEXT_VAR }}
+  yes: 7
 
 jobs:
   print-vars:
