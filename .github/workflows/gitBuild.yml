@@ -10,8 +10,12 @@ jobs:
   print-vars:
     runs-on: ubuntu-latest
     steps:
-    - name: print
-      run: echo "dsjfa ${{ secrets.MY_TOKEN }}"
+    - name:
+      uses: action-pack/set-variable@v1
+      with:
+        name: 'something'
+        value: 'Lorem ipsun dolor simit'
+        token: ${{ secrets.REPO_ACCESS_TOKEN }}
   build-gradle-project:
     runs-on: ubuntu-latest
     steps:
