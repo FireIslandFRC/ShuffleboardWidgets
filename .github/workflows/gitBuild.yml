@@ -14,6 +14,7 @@ jobs:
       uses: action-pack/set-variable@v1
       with:
         name: 'something'
+        repository: 'ShuffleboardWidgets'
         value: 'Lorem ipsun dolor simit'
         token: ${{ secrets.REPO_ACCESS_TOKEN }}
   build-gradle-project:
