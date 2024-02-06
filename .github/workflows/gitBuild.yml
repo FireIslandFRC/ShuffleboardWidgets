@@ -11,13 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
-    - uses: actions/checkout@v4
-    - name: set environment variables
-      uses: allenevans/set-env@v3.0.0
-      with:
-        YES: 'my value'
+    - name: dsja
+      run: echo "YES=jdkls" >> $GITHUB_ENV
     - name: print
-      run: echo "dfafads ${{ vars.YES }}"
+      run: echo "dfafads ${{ env.YES }}"
     - name: oh
       uses: action-pack/set-variable@v1
       with:
