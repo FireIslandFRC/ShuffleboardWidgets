@@ -21,7 +21,7 @@ import "example-plugins:PROJECT_NAME"
 ## Building
 Due to the fact that a full gradle build takes upwards of ten minutes, the project allows smaller builds for individual plugins.
 To build a single plugin, type the following into a terminal
-```Shell
+```bash
 ./gradlew example-plugins:PROJECT_NAME:InstallPlugin
 ```
 This will build your plugin and place it directly in the ~/Shuffleboard/plugins directory
