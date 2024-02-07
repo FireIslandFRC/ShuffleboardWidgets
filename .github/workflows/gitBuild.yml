@@ -1,0 +1,47 @@
+name: Build Gradle project
+
+on:
+  workflow_run:
+    workflows: ["Validate Gradle Wrapper"]
+    branch: main
+  pull_request:
+
+permissions:
+  contents: write
+
+jobs:
+  build-gradle-project:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout project sources
+      uses: actions/checkout@v3
+    - name: Setup Gradle
+      uses: gradle/gradle-build-action@v2
+    - name: Run build with Gradle Wrapper
+      run: ./gradlew example-plugins:installAll
+    - name: Archive jar
+      uses: actions/upload-artifact@v4
+      with:
+        name: build
+        path: ~/Shuffleboard/plugins/
+        retention-days: 1
+  release:
+    name: Release pushed tag
+    needs: build-gradle-project
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download build
+        uses: actions/download-artifact@v4
+        with:
+          name: build
+          path: ~/Shuffleboard/plugins
+      - name: Create release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ github.ref_name }}
+        run: |
+          gh release create "$(echo $GITHUB_SHA | cut -c1-10)" \
+              ~/Shuffleboard/plugins/* \
+              --repo="$GITHUB_REPOSITORY" \
+              --title="${hehehhehhe}" \
+              --generate-notes
