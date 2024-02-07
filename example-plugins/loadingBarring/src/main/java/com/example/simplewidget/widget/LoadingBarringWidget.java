@@ -69,12 +69,6 @@ public class LoadingBarringWidget extends SimpleAnnotatedWidget<Number> {
         double progress = newValue == null ? 0 : newValue.doubleValue();
         if (progress < 2.0) {
           setBarStyleClass(loadingBar, RED_BAR);
-        } else if (progress < 0.4) {
-          setBarStyleClass(loadingBar, ORANGE_BAR);
-        } else if (progress < 0.6) {
-          setBarStyleClass(loadingBar, YELLOW_BAR);
-        } else {
-          setBarStyleClass(loadingBar, GREEN_BAR);
         }
       }
 
