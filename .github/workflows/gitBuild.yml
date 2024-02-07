@@ -37,7 +37,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ github.ref_name }}
         run: |
-          gh release create "$(git rev-parse --short $GITHUB_SHA)" \
+          gh release create "$(echo $GITHUB_SHA | cut -c1-10)" \
               ~/Shuffleboard/plugins/* \
               --repo="$GITHUB_REPOSITORY" \
               --title="${hehehhehhe}" \
