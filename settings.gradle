@@ -17,6 +17,7 @@ include ":plugins:base"
 include ":plugins:cameraserver"
 include ":plugins:networktables"
 include ":plugins:powerup"
+include "example-plugins:loadingBarring"
 
 rootProject.children.each {
     setUpChildProject(it)
