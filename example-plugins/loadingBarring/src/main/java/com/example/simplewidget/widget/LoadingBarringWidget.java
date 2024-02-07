@@ -33,6 +33,9 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
+import javafx.scene.transform.Rotate;
+import javafx.scene.transform.Translate;
+
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -54,16 +57,17 @@ public class LoadingBarringWidget extends SimpleAnnotatedWidget<Number> {
   @FXML
   private void initialize() {
     dataProperty().addListener((__, prev, cur) -> {
+      loadingBar.getTransforms().setAll(new Translate(loadingBar.getWidth(), loadingBar.getHeight()), new Rotate(180));
       if (cur != null) {
         if (cur instanceof Number) {
-          loadingBar.setProgress(((Number)cur).doubleValue());
+          loadingBar.setProgress(1 - ((Number)cur).doubleValue());
         }
       }
     });
     loadingBar.progressProperty().addListener(new ChangeListener<Number>() {
       @Override public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
         double progress = newValue == null ? 0 : newValue.doubleValue();
-        if (progress < 0.2) {
+        if (progress < 2.0) {
           setBarStyleClass(loadingBar, RED_BAR);
         } else if (progress < 0.4) {
           setBarStyleClass(loadingBar, ORANGE_BAR);
