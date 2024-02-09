@@ -20,6 +20,7 @@ include ":plugins:powerup"
 include "example-plugins:loadingBarring"
 include "example-plugins:example-widget"
 include "example-plugins:sometimesText"
+include "builtOutWidgets"
 
 rootProject.children.each {
     setUpChildProject(it)
