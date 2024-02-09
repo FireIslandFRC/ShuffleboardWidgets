@@ -6,12 +6,16 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<StackPane xmlns="http://javafx.com/javafx"
+<VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.example.simplewidget.widget.SometimesTextWidget"
       fx:id="root"
-      minWidth="96" minHeight="96">
-      <TextField fx:id="textField"/>
-      <ToggleButton fx:id="itDoesntMatter"/>
-</StackPane>
+      minWidth="96" minHeight="96" spacing="5">
+      <padding>
+            <Insets topRightBottomLeft="10"/>
+      </padding>
+      <TextField fx:id="textField" onAction="#setText"/>
+      <ToggleButton fx:id="itDoesntMatter" maxWidth="Infinity" text="Text On" onAction="#setSometimes"/>
+</VBox>

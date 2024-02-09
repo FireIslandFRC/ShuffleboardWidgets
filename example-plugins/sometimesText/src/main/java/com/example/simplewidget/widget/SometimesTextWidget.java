@@ -26,13 +26,18 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.Pane;
 import org.fxmisc.easybind.EasyBind;
+import org.fxmisc.easybind.monadic.MonadicBinding;
+import edu.wpi.first.shuffleboard.api.sources.DataSourceUtils;
+import edu.wpi.first.shuffleboard.api.sources.DataSource;
 
-@Description(name = "SometimesText", dataTypes = {Number.class})
+import com.example.simplewidget.data.SometimesTextData;
+
+@Description(name = "Sometimes Text", dataTypes = {SometimesTextData.class})
 @ParametrizedController("SometimesTextWidget.fxml")
-public class SometimesTextWidget extends SimpleAnnotatedWidget<Object> {
+public class SometimesTextWidget extends SimpleAnnotatedWidget<SometimesTextData> {
 
   @FXML
-  private StackPane root;
+  private Pane root;
 
   @FXML
   private TextField textField;
@@ -42,27 +47,12 @@ public class SometimesTextWidget extends SimpleAnnotatedWidget<Object> {
 
  @FXML
   private void initialize() {
-    StackPane.setMargin(textField, new Insets(10, 10, 10, 10));
-    StackPane.setMargin(itDoesntMatter, new Insets(100, 10, 100, 10));
-
     dataProperty().addListener((__, prev, cur) -> {
       if (cur != null) {
-        if (cur instanceof String) {
-          textField.setText(cur.toString());
-        }
+        textField.setText(cur.getText());
+        itDoesntMatter.setSelected(cur.getSometimes());
       }
     });
-
-    textField.textProperty().addListener((__, oldText, newText) -> {
-      if (getData() instanceof Boolean) {
-        // TODO maybe disable boolean text entry entirely? No point in typing "true" or "false" every time
-        // Especially since checkboxes and toggle buttons exist
-        setData(Boolean.valueOf(newText));
-      } else {
-        setData(newText);
-      }
-    });
-    
   }
 
   @Override
@@ -74,7 +64,17 @@ public class SometimesTextWidget extends SimpleAnnotatedWidget<Object> {
 
   @Override
   public Pane getView() {
-    return (Pane)root;
+    return root;
+  }
+
+  @FXML
+  public void setText() {
+    setData(getData().withText(textField.getText()));
+  }
+
+  @FXML
+  public void setSometimes() {
+    setData(getData().withSometimes(itDoesntMatter.isSelected()));
   }
 
 }

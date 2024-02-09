@@ -7,6 +7,7 @@ import edu.wpi.first.shuffleboard.api.widget.ComponentType;
 import edu.wpi.first.shuffleboard.api.widget.WidgetType;
 
 import com.example.simplewidget.widget.SometimesTextWidget;
+import com.example.simplewidget.data.type.SometimesTextType;
 
 import java.util.List;
 import java.util.Map;
@@ -26,17 +27,17 @@ public final class SometimesTextPlugin extends Plugin {
       );
     }
 
-  //   @Override
-  //   public List<DataType> getDataTypes() {
-  //     return List.of(
-  //         ExampleType.Instance
-  //     );
-  //   }
+    @Override
+    public List<DataType> getDataTypes() {
+      return List.of(
+          SometimesTextType.Instance
+      );
+    }
     
-  // @Override
-  // public Map<DataType, ComponentType> getDefaultComponents() {
-  //   return Map.of(
-  //       ExampleType.Instance, WidgetType.forAnnotatedWidget(ExampleWidget.class)
-  //   );
-  // }
+  @Override
+  public Map<DataType, ComponentType> getDefaultComponents() {
+    return Map.of(
+        SometimesTextType.Instance, WidgetType.forAnnotatedWidget(SometimesTextWidget.class)
+    );
+  }
 }
