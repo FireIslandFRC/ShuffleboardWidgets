@@ -34,7 +34,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: build
-          path: ~/Shuffleboard/plugins
+          path: ~/Shuffleboard/plugins/
       - name: Create release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
