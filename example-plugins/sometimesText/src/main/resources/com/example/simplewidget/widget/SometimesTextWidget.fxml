@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.simplewidget.widget.SometimesTextWidget"
+      fx:id="root"
+      minWidth="96" minHeight="96" spacing="5">
+      <padding>
+            <Insets topRightBottomLeft="10"/>
+      </padding>
+      <TextField fx:id="textField" onAction="#setText"/>
+      <ToggleButton fx:id="itDoesntMatter" maxWidth="Infinity" text="Text On" onAction="#setSometimes"/>
+</VBox>
