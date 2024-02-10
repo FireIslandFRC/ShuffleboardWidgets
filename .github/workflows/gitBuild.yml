@@ -43,7 +43,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ github.ref_name }}
         run: |
-          gh release create "${{github.event.inputs}}" \
+          gh release create "${{github.event.inputs.release_tag}}" \
               ~/Shuffleboard/plugins/* \
               --repo="$GITHUB_REPOSITORY" \
               --title="${hehehhehhe}" \
