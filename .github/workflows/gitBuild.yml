@@ -1,9 +1,6 @@
 name: Build Gradle project
 
 on:
-  workflow_run:
-    workflows: ["Validate Gradle Wrapper"]
-    branch: main
   workflow_dispatch:
     inputs:
       body:
