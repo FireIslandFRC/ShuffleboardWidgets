@@ -4,8 +4,12 @@ on:
   workflow_run:
     workflows: ["Validate Gradle Wrapper"]
     branch: main
-  pull_request:
-
+  workflow_dispatch:
+    inputs:
+      body:
+        default: ""
+      test:
+        default: "false"
 permissions:
   contents: write
 
