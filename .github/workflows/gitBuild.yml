@@ -3,6 +3,8 @@ name: Build Gradle project
 on:
   workflow_dispatch:
     inputs:
+      release_tag:
+        default: "$(echo $GITHUB_SHA | cut -c1-10)"
       body:
         default: ""
       test:
@@ -41,7 +43,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ github.ref_name }}
         run: |
-          gh release create "$(echo $GITHUB_SHA | cut -c1-10)" \
+          gh release create "${{github.event.inputs}}" \
               ~/Shuffleboard/plugins/* \
               --repo="$GITHUB_REPOSITORY" \
               --title="${hehehhehhe}" \
