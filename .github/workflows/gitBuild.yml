@@ -4,7 +4,6 @@ on:
   workflow_dispatch:
     inputs:
       release_tag:
-        required: true
         default: "$(echo $GITHUB_SHA | cut -c1-10)"
       body:
         default: ""
