@@ -57,6 +57,7 @@ public class GyroWidget extends SimpleAnnotatedWidget<Object> {
         }
         if (wrapAt != 0)
           angle = wrapAngle(angle);
+        gauge.setValue(angle);
         valueLabel.setText(String.format("%1.4f", angle));
       }
     });
