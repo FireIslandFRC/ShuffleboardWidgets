@@ -39,6 +39,7 @@ public class GyroWidget extends SimpleAnnotatedWidget<Object> {
   private TextField valueLabel;
 
   private double angle;
+  private double wrapAt;
 
   @FXML
   private void initialize() {
@@ -54,7 +55,8 @@ public class GyroWidget extends SimpleAnnotatedWidget<Object> {
         } else if (cur instanceof String || cur instanceof Boolean) {
           valueLabel.setText(cur.toString());
         }
-        angle = wrapAngle(angle);
+        if (wrapAt != 0)
+          angle = wrapAngle(angle);
         valueLabel.setText(String.format("%1.4f", angle));
       }
     });
@@ -68,9 +70,9 @@ public class GyroWidget extends SimpleAnnotatedWidget<Object> {
    */
   private double wrapAngle(double angle) {
     if (angle < 0) {
-      return ((angle % (2 * Math.PI)) + (2 * Math.PI)) % (2 * Math.PI);
+      return ((angle % (wrapAt)) + (wrapAt)) % (wrapAt);
     } else {
-      return angle % (2 * Math.PI);
+      return angle % (wrapAt);
     }
   }
 
@@ -84,12 +86,37 @@ public class GyroWidget extends SimpleAnnotatedWidget<Object> {
             Setting.of("Counter clockwise", createCounterClockwiseProperty(), Boolean.class)),
         Group.of("Numbers",
             Setting.of("Min Value", createMinvalueProperty(), Double.class),
-            Setting.of("Max Value", createMaxvalueProperty(), Double.class)));
+            Setting.of("Max Value", createMaxvalueProperty(), Double.class),
+            Setting.of("Wrap Angle", createWrapProperty(), Double.class)));
   }
 
   @Override
   public Pane getView() {
     return root;
+  }
+
+  private Property<Number> createWrapProperty() {
+    return new DoublePropertyBase() {
+      @Override
+      public double get() {
+        return wrapAt;
+      }
+
+      @Override
+      public void set(double arg0) {
+        wrapAt = arg0;
+      }
+
+      @Override
+          public Object getBean() {
+              return gauge;
+          }
+
+      @Override
+      public String getName() {
+        return "wrapAngle";
+      }
+    };
   }
 
   private Property<Number> createMaxvalueProperty() {
