@@ -16,6 +16,7 @@ import java.util.List;
 import javax.management.ValueExp;
 
 import javafx.beans.property.BooleanPropertyBase;
+import javafx.beans.property.DoublePropertyBase;
 import javafx.beans.property.Property;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableArrayBase;
@@ -26,7 +27,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import org.fxmisc.easybind.EasyBind;
 
-@Description(name = "RadiableGyro", dataTypes = {GyroData.class, Number.class})
+@Description(name = "RadiableGyro", dataTypes = { GyroData.class, Number.class })
 @ParametrizedController("GyroWidget.fxml")
 public class GyroWidget extends SimpleAnnotatedWidget<Object> {
 
@@ -41,7 +42,8 @@ public class GyroWidget extends SimpleAnnotatedWidget<Object> {
 
   @FXML
   private void initialize() {
-   valueLabel.setEditable(false); 
+    gauge.setSkinType(Gauge.SkinType.MODERN);
+    valueLabel.setEditable(false);
     dataProperty().addListener((__, prev, cur) -> {
       if (cur != null) {
         double angle = 0;
@@ -61,9 +63,9 @@ public class GyroWidget extends SimpleAnnotatedWidget<Object> {
 
   /**
    * Helper method to keep an angle in the range [0, 360).
-   * eg wrapAngle(90)  -> 90
-   *    wrapAngle(360) -> 0
-   *    wrapAngle(-15) -> 345
+   * eg wrapAngle(90) -> 90
+   * wrapAngle(360) -> 0
+   * wrapAngle(-15) -> 345
    */
   private double wrapAngle(double angle) {
     if (angle < 0) {
@@ -80,14 +82,63 @@ public class GyroWidget extends SimpleAnnotatedWidget<Object> {
             Setting.of("Major tick spacing", gauge.majorTickSpaceProperty(), Double.class),
             Setting.of("Starting angle", gauge.startAngleProperty(), Double.class),
             Setting.of("Show tick mark ring", gauge.tickMarkRingVisibleProperty(), Boolean.class),
-            Setting.of("Counter clockwise", createCounterClockwiseProperty(), Boolean.class)
-        )
-    );
+            Setting.of("Counter clockwise", createCounterClockwiseProperty(), Boolean.class)),
+        Group.of("Numbers",
+            Setting.of("Min Value", createMinvalueProperty(), Double.class),
+            Setting.of("Max Value", createMaxvalueProperty(), Double.class)));
   }
 
   @Override
   public Pane getView() {
     return root;
+  }
+
+  private Property<Number> createMaxvalueProperty() {
+    return new DoublePropertyBase() {
+      @Override
+      public double get() {
+        return gauge.getMaxValue();
+      }
+
+      @Override
+      public void set(double arg0) {
+        gauge.setMaxValue(arg0);
+      }
+
+      @Override
+      public Object getBean() {
+        return gauge;
+      }
+
+      @Override
+      public String getName() {
+        return "minValue";
+      }
+    };
+  }
+
+  private Property<Number> createMinvalueProperty() {
+    return new DoublePropertyBase() {
+      @Override
+      public double get() {
+        return gauge.getMinValue();
+      }
+
+      @Override
+      public void set(double arg0) {
+        gauge.setMinValue(arg0);
+      }
+
+      @Override
+      public Object getBean() {
+        return gauge;
+      }
+
+      @Override
+      public String getName() {
+        return "minValue";
+      }
+    };
   }
 
   private Property<Boolean> createCounterClockwiseProperty() {

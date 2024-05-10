@@ -21,6 +21,7 @@ include "example-plugins:loadingBarring"
 include "example-plugins:example-widget"
 include "example-plugins:sometimesText"
 include "builtOutWidgets"
+include "plannerDisplay"
 
 rootProject.children.each {
     setUpChildProject(it)

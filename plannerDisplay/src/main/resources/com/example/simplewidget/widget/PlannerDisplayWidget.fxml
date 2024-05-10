@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.TextField?>
+<?import com.example.simplewidget.ResizeableCanvas?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.simplewidget.widget.PlannerDisplayWidget"
+      fx:id="root"
+      minWidth="96" minHeight="96">
+    <ResizeableCanvas fx:id="canvas"/>
+    <TextField fx:id="text" onAction="#setValue">
+</AnchorPane>
