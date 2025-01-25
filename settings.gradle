@@ -22,6 +22,7 @@ include "example-plugins:example-widget"
 include "example-plugins:sometimesText"
 include "builtOutWidgets"
 include "plannerDisplay"
+include "my-field"
 
 rootProject.children.each {
     setUpChildProject(it)

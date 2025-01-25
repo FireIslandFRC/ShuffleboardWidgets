@@ -7,6 +7,7 @@ import edu.wpi.first.shuffleboard.api.widget.ComponentType;
 import edu.wpi.first.shuffleboard.api.widget.WidgetType;
 
 import com.example.simplewidget.data.type.GyroType;
+import com.example.simplewidget.widget.BetterPIDControllerWidget;
 import com.example.simplewidget.widget.GyroWidget;
 import com.example.simplewidget.widget.LoadingBarringWidget;
 import com.example.simplewidget.widget.SometimesTextWidget;
@@ -34,7 +35,8 @@ public final class BuiltOutPlugin extends Plugin {
     return List.of(
         WidgetType.forAnnotatedWidget(GyroWidget.class),
         WidgetType.forAnnotatedWidget(LoadingBarringWidget.class),
-        WidgetType.forAnnotatedWidget(SometimesTextWidget.class)
+        WidgetType.forAnnotatedWidget(SometimesTextWidget.class),
+        WidgetType.forAnnotatedWidget(BetterPIDControllerWidget.class)
     );
   }
 

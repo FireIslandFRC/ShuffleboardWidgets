@@ -1,0 +1,28 @@
+plugins {
+    id 'java-library'
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        name = "WPILib"
+        setUrl("https://frcmaven.wpi.edu/artifactory/release")
+    }
+}
+
+dependencies {
+    compileOnly project(":api")
+    api wpilibTools.deps.wpilibJava("fieldImages")
+}
+
+tasks.register("installPlugin", Copy) {
+    from(tasks.named("jar"))
+    into("${System.getProperty("user.home")}/Shuffleboard/plugins")
+    description = "Builds the plugin JAR and installs it in the Shuffleboard plugins directory."
+    group = "Shuffleboard Plugin"
+    rename { String fileName ->
+        // a simple way is to remove the "-$version" from the jar filename
+        // but you can customize the filename replacement rule as you wish.
+        fileName.replace("-$project.version", "")
+    }
+}

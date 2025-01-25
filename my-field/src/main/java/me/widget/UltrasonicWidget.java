@@ -1,11 +1,11 @@
-package edu.wpi.first.shuffleboard.plugin.base.widget;
+package me.widget;
 
 import edu.wpi.first.shuffleboard.api.prefs.Group;
 import edu.wpi.first.shuffleboard.api.prefs.Setting;
 import edu.wpi.first.shuffleboard.api.widget.Description;
 import edu.wpi.first.shuffleboard.api.widget.ParametrizedController;
 import edu.wpi.first.shuffleboard.api.widget.SimpleAnnotatedWidget;
-import edu.wpi.first.shuffleboard.plugin.base.data.UltrasonicData;
+import me.data.UltrasonicData;
 
 import java.util.List;
 
