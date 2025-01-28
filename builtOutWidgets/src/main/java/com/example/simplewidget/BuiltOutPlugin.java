@@ -7,6 +7,7 @@ import edu.wpi.first.shuffleboard.api.widget.ComponentType;
 import edu.wpi.first.shuffleboard.api.widget.WidgetType;
 
 import com.example.simplewidget.data.type.GyroType;
+import com.example.simplewidget.data.type.BetterPIDControllerType;
 import com.example.simplewidget.widget.BetterPIDControllerWidget;
 import com.example.simplewidget.widget.GyroWidget;
 import com.example.simplewidget.widget.LoadingBarringWidget;
@@ -26,7 +27,8 @@ public final class BuiltOutPlugin extends Plugin {
   @Override
   public List<DataType> getDataTypes() {
     return List.of(
-        GyroType.Instance
+        GyroType.Instance,
+        BetterPIDControllerType.Instance
     );
   }
 
@@ -43,7 +45,8 @@ public final class BuiltOutPlugin extends Plugin {
   @Override
   public Map<DataType, ComponentType> getDefaultComponents() {
     return Map.of(
-        GyroType.Instance, WidgetType.forAnnotatedWidget(GyroWidget.class)
+        GyroType.Instance, WidgetType.forAnnotatedWidget(GyroWidget.class),
+        BetterPIDControllerType.Instance, WidgetType.forAnnotatedWidget(BetterPIDControllerWidget.class)
     );
   }
 }

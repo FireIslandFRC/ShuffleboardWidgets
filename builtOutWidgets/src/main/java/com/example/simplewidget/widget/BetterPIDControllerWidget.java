@@ -15,7 +15,7 @@ import javafx.scene.layout.Pane;
  * A widget for controlling BetterPID controllers. This gives control over the four BetterPIDF constants, the controller
  * setpoint, and whether or not the controller is enabled.
  */
-@Description(name = "BetterPID Controller", dataTypes = BetterPIDControllerData.class)
+@Description(name = "BetterPIDController", dataTypes = BetterPIDControllerData.class)
 @ParametrizedController("BetterPIDControllerWidget.fxml")
 public class BetterPIDControllerWidget extends SimpleAnnotatedWidget<BetterPIDControllerData> {
 
