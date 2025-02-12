@@ -18,16 +18,15 @@
 
     <Circle fx:id="0" centerX="30" centerY="160" radius="20" stroke="#ff8800"></Circle>
     <Circle fx:id="11" centerX="50" centerY="200" radius="20" stroke="#ff8800"></Circle>
-    <Circle fx:id="7" centerX="206" centerY="200" radius="20" stroke="#ff8800"></Circle>
-    <Circle fx:id="8" centerX="226" centerY="160" radius="20" stroke="#ff8800"></Circle>
+    <Circle fx:id="8" centerX="206" centerY="200" radius="20" stroke="#ff8800"></Circle>
+    <Circle fx:id="7" centerX="226" centerY="160" radius="20" stroke="#ff8800"></Circle>
 
-    <Circle fx:id="9" centerX="106" centerY="224" radius="20" stroke="#ff8800"></Circle>
-    <Circle fx:id="10" centerX="150" centerY="224" radius="20" stroke="#ff8800"></Circle>
+    <Circle fx:id="10" centerX="106" centerY="224" radius="20" stroke="#ff8800"></Circle>
+    <Circle fx:id="9" centerX="150" centerY="224" radius="20" stroke="#ff8800"></Circle>
 
 
     <Circle fx:id="12" centerX="340" centerY="54" radius="20" stroke="#ff8800"></Circle>
     <Circle fx:id="13" centerX="340" centerY="108" radius="20" stroke="#ff8800"></Circle>
     <Circle fx:id="14" centerX="340" centerY="162" radius="20" stroke="#ff8800"></Circle>
     <Circle fx:id="15" centerX="340" centerY="216" radius="20" stroke="#ff8800"></Circle>
-    
 </Pane>

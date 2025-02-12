@@ -20,7 +20,7 @@ public class OctagonWidget extends SimpleAnnotatedWidget<OctagonData> {
 
   @FXML
   private Pane root;
-  
+
   private Circle[] reef;
   private Circle[] levels;
 
@@ -30,7 +30,8 @@ public class OctagonWidget extends SimpleAnnotatedWidget<OctagonData> {
   @FXML
   private void initialize() {
     reef = new Circle[12];
-    for (int i = 0; i < 12; i++) {
+    levels = new Circle[4];
+    for (int i = 0; i < 16; i++) {
       Circle circle = (Circle)root.getChildren().get(i);
       int index = Integer.parseInt(circle.getId());
       if (index < 12) reef[index] = circle;
@@ -39,12 +40,12 @@ public class OctagonWidget extends SimpleAnnotatedWidget<OctagonData> {
 
     dataProperty().addListener((__, oldData, newData) -> {
       if (oldData != null) {
-        reef[oldData.getButton()].setFill(off);
-        levels[oldData.getButton()].setFill(off);
+		  if (oldData.getButton() - 1 >= 0) reef[oldData.getButton() - 1].setFill(off);
+		  if (oldData.getLevel() - 1 >= 0) levels[oldData.getLevel() - 1].setFill(off);
       }
       if (newData != null) {
-        reef[newData.getLevel()].setFill(on);
-        levels[newData.getLevel()].setFill(on);
+		  if (newData.getButton() - 1 >= 0) reef[newData.getButton() - 1].setFill(on);
+		  if (newData.getLevel() - 1 >= 0) levels[newData.getLevel() - 1].setFill(on);
       }
     });
   }

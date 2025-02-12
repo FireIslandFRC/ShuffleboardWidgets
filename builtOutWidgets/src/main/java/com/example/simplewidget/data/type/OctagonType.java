@@ -16,7 +16,7 @@ public class OctagonType extends ComplexDataType<OctagonData> {
 
   @Override
   public Function<Map<String, Object>, OctagonData> fromMap() {
-    return OctagonData::new;
+    return (map) -> new OctagonData(((Long)map.getOrDefault("button", 0)).intValue(), ((Long)map.getOrDefault("level", 0)).intValue());
   }
 
   @Override
